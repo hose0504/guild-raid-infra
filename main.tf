@@ -17,3 +17,15 @@ module "security" {
   http_port   = var.http_port
   https_port  = var.https_port
 }
+
+module "compute" {
+  source = "./modules/compute"
+
+  name_prefix       = local.name_prefix
+  ami_id            = var.ami_id
+  instance_type     = var.instance_type
+  key_name          = var.key_name
+  subnet_id         = module.network.public_subnet_ids[0]
+  security_group_id = module.security.ec2_sg_id
+  user_data_path    = var.user_data_path
+}

@@ -19,3 +19,6 @@ domain_name = "wishraid.click"
 ssh_port   = 22
 http_port  = 80
 https_port = 443
+
+instance_type  = "t3.small"
+user_data_path = "userdata/app.sh"
