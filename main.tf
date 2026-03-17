@@ -29,3 +29,14 @@ module "compute" {
   security_group_id = module.security.ec2_sg_id
   user_data_path    = var.user_data_path
 }
+
+module "alb" {
+  source = "./modules/alb"
+
+  name_prefix      = local.name_prefix
+  vpc_id           = module.network.vpc_id
+  subnet_ids       = module.network.public_subnet_ids
+  security_group_id = module.security.alb_sg_id
+  target_port      = var.http_port
+  instance_id      = module.compute.instance_id
+}
