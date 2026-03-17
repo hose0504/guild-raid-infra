@@ -40,3 +40,12 @@ module "alb" {
   target_port       = var.http_port
   instance_id       = module.compute.instance_id
 }
+
+module "route53" {
+  source = "./modules/route53"
+
+  domain_name  = var.domain_name
+  record_name  = var.record_name
+  alb_dns_name = module.alb.alb_dns_name
+  alb_zone_id  = module.alb.alb_zone_id
+}

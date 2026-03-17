@@ -80,3 +80,8 @@ variable "user_data_path" {
   description = "Path to user data script"
   type        = string
 }
+
+variable "record_name" {
+  description = "Route53 record name"
+  type        = string
+}
