@@ -39,13 +39,34 @@ module "alb" {
   security_group_id = module.security.alb_sg_id
   target_port       = var.http_port
   instance_id       = module.compute.instance_id
+  certificate_arn   = module.acm.certificate_arn
+  enable_https      = true
 }
 
 module "route53" {
   source = "./modules/route53"
 
-  domain_name  = var.domain_name
-  record_name  = var.record_name
-  alb_dns_name = module.alb.alb_dns_name
-  alb_zone_id  = module.alb.alb_zone_id
+  domain_name         = var.domain_name
+  record_name         = var.record_name
+  alb_dns_name        = "placeholder"
+  alb_zone_id         = "placeholder"
+  create_alias_record = false
+}
+
+module "route53_alias" {
+  source = "./modules/route53"
+
+  domain_name         = var.domain_name
+  record_name         = var.record_name
+  alb_dns_name        = module.alb.alb_dns_name
+  alb_zone_id         = module.alb.alb_zone_id
+  create_alias_record = true
+}
+
+module "acm" {
+  source = "./modules/acm"
+
+  domain_name               = var.certificate_domain_name
+  subject_alternative_names = var.subject_alternative_names
+  hosted_zone_id            = module.route53.hosted_zone_id
 }

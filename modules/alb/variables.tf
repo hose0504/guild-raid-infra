@@ -21,3 +21,12 @@ variable "target_port" {
 variable "instance_id" {
   type = string
 }
+
+variable "certificate_arn" {
+  type = string
+}
+
+variable "enable_https" {
+  type    = bool
+  default = true
+}

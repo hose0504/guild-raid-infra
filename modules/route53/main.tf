@@ -4,6 +4,7 @@ data "aws_route53_zone" "this" {
 }
 
 resource "aws_route53_record" "alias" {
+  count   = var.create_alias_record ? 1 : 0
   zone_id = data.aws_route53_zone.this.zone_id
   name    = var.record_name
   type    = "A"

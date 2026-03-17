@@ -85,3 +85,14 @@ variable "record_name" {
   description = "Route53 record name"
   type        = string
 }
+
+variable "certificate_domain_name" {
+  description = "Primary domain name for ACM certificate"
+  type        = string
+}
+
+variable "subject_alternative_names" {
+  description = "Additional domain names for ACM certificate"
+  type        = list(string)
+  default     = []
+}
