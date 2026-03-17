@@ -1,0 +1,29 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+.terraform.tfstate.lock.info
+terraform.exe
+
+# Terraform CLI / plan
+*.tfplan
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Variables / secrets
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Keys / env
+*.pem
+*.key
+.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
