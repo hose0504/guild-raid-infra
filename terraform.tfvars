@@ -15,3 +15,7 @@ availability_zones = [
 ]
 
 domain_name = "wishraid.click"
+
+ssh_port   = 22
+http_port  = 80
+https_port = 443
