@@ -41,11 +41,3 @@ output "record_fqdn" {
 output "certificate_arn" {
   value = module.acm.certificate_arn
 }
-
-output "record_fqdn" {
-  value = module.route53_alias.record_fqdn
-}
-
-output "alb_dns_name" {
-  value = module.alb.alb_dns_name
-}
