@@ -1,6 +1,6 @@
 environment               = "event9"
 my_ip_cidr                = "116.37.78.146/32"
-ami_id                    = "ami-0b6200742ae94a2ed"
+ami_id                    = "ami-015c2e170a0e73294"
 key_name                  = "9aniver"
 record_name               = "wishraid.click"
 certificate_domain_name   = "wishraid.click"
